@@ -1,0 +1,20 @@
+# 1. Ignore EVERYTHING by default
+/*
+
+# 2. Allow the .gitignore itself
+!.gitignore
+
+# 3. Allow your code and plot files
+!*.py
+!*.ipynb
+!*.png
+!*.gif
+!*.pkl
+!*.npy
+
+# 4. Open the "doors" to the caustics folder
+!outputs/
+!outputs/caustics/
+
+# 5. Allow everything INSIDE the caustics folder (including FITS)
+!outputs/caustics/**
