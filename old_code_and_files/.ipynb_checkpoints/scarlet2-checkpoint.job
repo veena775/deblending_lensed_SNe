@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J mse
+#SBATCH --constraint=a100
+#SBATCH -t 1:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --gres=gpu:1
+#SBATCH --mail-user=vk9342@princeton.edu
+#SBATCH --mail-type=all
+#SBATCH -o scarlet2_run.o%j
+
+python scarlet2_modified.py

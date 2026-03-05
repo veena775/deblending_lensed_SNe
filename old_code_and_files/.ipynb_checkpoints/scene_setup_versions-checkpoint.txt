@@ -1,0 +1,70 @@
+_v6:
+
+if i == lens_indx:  #added lens box
+    x = np.linspace(-10, 10, 40)
+    y = np.linspace(-10, 10, 40)
+    x, y = np.meshgrid(x, y) # get 2D variables instead of 1D
+    morphology = gaus2d(x, y, sx=3,sy=3)
+else:
+    x = np.linspace(-10, 10, 15)
+    y = np.linspace(-10, 10, 15)
+    x, y = np.meshgrid(x, y) # get 2D variables instead of 1D
+    morphology = gaus2d(x, y, sx=2, sy=2)
+
+ if i == lens_indx:                      #lens
+                pad = int((30 - morphology.shape[0])/2)
+            else:                                           #host
+                pad = int((20 - morphology.shape[0])/2)
+
+
+pos_step = 1e-3                                                   #change if SN positions look bad
+morph_step = lambda p: scarlet2.relative_step(p, factor=1e-4)     #change factor if host/lens looks bad
+SED_step = lambda p: scarlet2.relative_step(p, factor=1e-4)       #change factor if SN flux looks bad
+stepnum = 3000
+scene_ = scene.fit(observations_sc2, parameters, max_iter=stepnum, e_rel=1e-4, progress_bar=True)
+
+
+_v7:
+if i == lens_indx:  #added lens box
+    x = np.linspace(-10, 10, 40)
+    y = np.linspace(-10, 10, 40)
+    x, y = np.meshgrid(x, y) # get 2D variables instead of 1D
+    morphology = gaus2d(x, y, sx=3,sy=3)
+else:
+    x = np.linspace(-10, 10, 10)
+    y = np.linspace(-10, 10, 10)
+    x, y = np.meshgrid(x, y) # get 2D variables instead of 1D
+    morphology = gaus2d(x, y, sx=2, sy=2)
+if i == lens_indx:                      #lens
+    pad = int((30 - morphology.shape[0])/2)
+else:                                           #host
+    pad = int((10 - morphology.shape[0])/2)
+
+pos_step = 1e-3                                                   #change if SN positions look bad
+morph_step = lambda p: scarlet2.relative_step(p, factor=1e-3)     #change factor if host/lens looks bad
+SED_step = lambda p: scarlet2.relative_step(p, factor=1e-3)       #change factor if SN flux looks bad
+stepnum = 3000
+scene_ = scene.fit(observations_sc2, parameters, max_iter=stepnum, e_rel=1e-4, progress_bar=True)
+
+
+
+_v8:
+if i == lens_indx:  #added lens box
+    x = np.linspace(-10, 10, 40)
+    y = np.linspace(-10, 10, 40)
+    x, y = np.meshgrid(x, y) # get 2D variables instead of 1D
+    morphology = gaus2d(x, y, sx=3,sy=3)
+else:
+    x = np.linspace(-10, 10, 30)
+    y = np.linspace(-10, 10, 30)
+
+if i == lens_indx:                      #lens
+    pad = int((30 - morphology.shape[0])/2)
+else:                                           #host
+    pad = int((10 - morphology.shape[0])/2)
+
+pos_step = 1e-3                                                   #change if SN positions look bad
+morph_step = lambda p: scarlet2.relative_step(p, factor=1e-4)     #change factor if host/lens looks bad
+SED_step = lambda p: scarlet2.relative_step(p, factor=1e-4)       #change factor if SN flux looks bad
+stepnum = 3000
+scene_ = scene.fit(observations_sc2, parameters, max_iter=stepnum, e_rel=1e-4, progress_bar=True)
